@@ -47,5 +47,5 @@ yum -y install linux-user-chroot
 adduser ostree
 
 su - ostree -c 'set -e ; cd; mkdir src;
-git clone --depth=1 git://git.gnome.org/gnome-ostree;
+git clone --depth=1 -b wip/aws-install git://github.com/cgwalters/gnome-ostree;
 ./gnome-ostree/install/ostree-user-install.sh'
