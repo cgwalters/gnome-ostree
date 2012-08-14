@@ -28,10 +28,15 @@ git
 make
 gcc
 gettext
-autoconf automake libtool
 libffi-devel
 libattr-devel
 libxml2-devel
+
+autoconf automake binutils bison byacc cvs docbook-dtds docbook-style-dsssl
+docbook-style-xsl docbook-utils doxygen elfutils flex gcc gcc-c++ gettext git 
+gzip hg intltool libtool make patch pkgconfig sed subversion tar unzip
+
+diffstat texinfo texi2html chrpath
 "
 
 yum -y install $PACKAGES

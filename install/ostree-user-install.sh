@@ -40,14 +40,13 @@ prefix = '~/build/jhbuild'
 use_local_modulesets = True
 END
 
-~/.local/bin/jhbuild build ostree
+~/.local/bin/jhbuild build gnome-ostree
 
-test -d gnome-ostree || git clone git://git.gnome.org/gnome-ostree
-
+cd ~/src
 test -d poky || git clone --depth=1 -b gnomeos-3.6 git://github.com/cgwalters/poky poky
-cd ${HOME}
-mkdir -p build
-. ${HOME}/src/poky/oe-init-build-env gnomeos-build
+mkdir -p ~/build
+cd ~/build
+. ~/src/poky/oe-init-build-env gnomeos-build
 cat > conf/bblayers.conf << END
 LCONF_VERSION = "4"
 BBFILES ?= ""
@@ -57,3 +56,6 @@ BBLAYERS = " \
   ${HOME}/src/poky/meta-gnomeos \
   "
 END
+
+bitbake gnomeos-contents-{runtime,devel}
+touch ~/build/gnomeos-build/tmp/sysroots/x86_64-linux/usr/share/aclocal/empty
