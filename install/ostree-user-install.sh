@@ -31,30 +31,8 @@ cd ~/src/jhbuild
 make
 make install
 
-cat > ${HOME}/src/ostree.modules << END
-<moduleset>
-  <repository type="git" name="git.gnome.org" default="yes"
-      href="git://git.gnome.org/"/>
-  <autotools id="glib" autogenargs="--disable-modular-tests">
-    <branch/>
-  </autotools>
-  <autotools id="ostree">
-    <branch/>
-    <dependencies>
-      <dep package="glib"/>
-    </dependencies>
-  </autotools>
-  <autotools id="gnome-ostree">
-    <branch/>
-    <dependencies>
-      <dep package="ostree"/>
-    </dependencies>
-  </autotools>
-</moduleset>
-END
-
 cat > ${HOME}/.jhbuildrc << END
-modulesets_dir = '~/src'
+modulesets_dir = '~/src/gnome-ostree/install'
 moduleset = 'ostree'
 modules = ['gnome-ostree']
 checkoutroot = '~/src'

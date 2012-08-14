@@ -30,6 +30,7 @@ gcc
 gettext
 autoconf automake libtool
 libffi-devel
+libattr-devel
 libxml2-devel
 "
 
